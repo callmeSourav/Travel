@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - LinkSphere</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e73be, #f5a623);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Login Container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #1e73be;
+}
+
+.login-header p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #1e73be;
+    box-shadow: 0 0 8px rgba(30, 115, 190, 0.3);
+}
+
+/* Button Styling */
+.btn.login-btn {
+    width: 100%;
+    background-color: #1e73be;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.login-btn:hover {
+    background-color: #f5a623;
+    transform: translateY(-2px);
+}
+
+/* Footer Links */
+.login-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-footer a {
+    color: #1e73be;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+    color: #f5a623;
+}
+/* Password Helper Style */
+.password-helper {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #1e73be;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.password-helper:hover {
+    color: #f5a623;
+}
+
+/* Reset Password Link */
+.login-footer p a#reset-password {
+    font-size: 0.85rem;
+    color: #1e73be;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-footer p a#reset-password:hover {
+    color: #f5a623;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-header p {
+        font-size: 0.9rem;
+    }
+}
+
+</style>
+<body>
+    <!-- Sign Up Page Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Create Your LinkSphere Account</h2>
+                <p>Sign up to join the community</p>
+            </div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <small id="generate-password" class="password-helper">Generate a secure password</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="btn login-btn">Sign Up</button>
+            </form>
+            <div class="login-footer">
+                <p>Already have an account? <a href="login.html">Log in</a></p>
+                <p><a href="#" id="reset-password">Forgot your password?</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for form handling
+        document.getElementById("signup-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return;
+            }
+
+            if (username && email && password) {
+                alert("Account created successfully! Redirecting to login...");
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        });
+
+        // Generate a secure password
+        document.getElementById("generate-password").addEventListener("click", function () {
+            const passwordField = document.getElementById("password");
+            const generatedPassword = Math.random().toString(36).slice(-12) + "!A1";
+            passwordField.value = generatedPassword;
+            alert("Generated password: " + generatedPassword);
+        });
+
+        // Reset password functionality (example implementation)
+        document.getElementById("reset-password").addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("Password reset link sent to your email.");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LinkSphere</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e73be, #f5a623);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Login Container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #1e73be;
+}
+
+.login-header p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #1e73be;
+    box-shadow: 0 0 8px rgba(30, 115, 190, 0.3);
+}
+
+/* Button Styling */
+.btn.login-btn {
+    width: 100%;
+    background-color: #1e73be;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.login-btn:hover {
+    background-color: #f5a623;
+    transform: translateY(-2px);
+}
+
+/* Footer Links */
+.login-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-footer a {
+    color: #1e73be;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+    color: #f5a623;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-header p {
+        font-size: 0.9rem;
+    }
+}
+
+</style>
+
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">LinkSphere</a>
+            <ul class="nav-links">
+                <li id="login-nav">
+                    <a href="login.html" id="login-link">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <!-- Login Page Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Welcome Back to LinkSphere</h2>
+                <p>Login to access your dashboard</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn login-btn">Login</button>
+            </form>
+            <div class="login-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle user login
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Example: Simulated authentication
+            if (email && password) {
+                const userName = email.split('@')[0]; // Extract username from email
+                localStorage.setItem("userName", userName); // Save user name in localStorage
+                alert(`Welcome, ${userName}! Redirecting to the dashboard...`);
+                window.location.href = "index.html"; // Redirect to the main page
+            } else {
+                alert("Please enter a valid email and password.");
+            }
+        });
+
+        // Function to update the navbar with the logged-in user's name
+        document.addEventListener("DOMContentLoaded", function () {
+            const userName = localStorage.getItem("userName");
+            const loginNav = document.getElementById("login-nav");
+
+            if (userName) {
+                loginNav.innerHTML = `<span>Welcome, ${userName}</span>`;
+            }
+        });
+    </script>
+</body>
+</html>

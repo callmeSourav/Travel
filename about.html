@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LinkSphere</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+    /* About Section */
+.about-section {
+    background-color: #fff;
+    padding: 80px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-item {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+    font-size: 1.8rem;
+    color: #1e73be;
+    margin-bottom: 15px;
+}
+
+.about-text {
+    font-size: 1rem;
+    color: #555;
+}
+footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 0 20px;
+    }
+}
+
+</style>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <h1>LinkSphere</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-description">Learn more about LinkSphere, the platform connecting travel vloggers and adventurers to explore new horizons together.</p>
+            
+            <div class="about-content">
+                <div class="about-item">
+                    <h3 class="about-title">Our Vision</h3>
+                    <p class="about-text">Our vision is to create a global community of travelers and content creators, making the world more accessible and connected through shared experiences. We aspire to empower individuals to embark on unique adventures, collaborate with inspiring creators, and discover new cultures.</p>
+                </div>
+                <div class="about-item">
+                    <h3 class="about-title">Our Mission</h3>
+                    <p class="about-text">Our mission is to provide a platform that brings together travel vloggers and adventurers, helping them find the perfect travel companion and share their journeys with the world. Through LinkSphere, we aim to make travel more social, inspiring, and accessible to everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 LinkSphere. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="#">Twitter</a> | 
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

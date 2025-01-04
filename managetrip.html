@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Trip with Vlogger</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F4F4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1E3A8A;
+            color: #fff;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .trip-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .vlogger-details {
+            text-align: center;
+        }
+
+        .vlogger-details img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+
+        .vlogger-details h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: #1E3A8A;
+        }
+
+        .vlogger-details p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .itinerary h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1E3A8A;
+        }
+
+        .itinerary .day {
+            margin-bottom: 20px;
+        }
+
+        .day-header {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #F4F4F4;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .day-details {
+            padding: 10px;
+            background-color: #F9F9F9;
+            border-left: 3px solid #1E3A8A;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .budget h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1E3A8A;
+        }
+
+        .budget ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .budget li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #F9F9F9;
+            border-radius: 5px;
+        }
+
+        .budget li strong {
+            color: #1E3A8A;
+        }
+
+        /* Chat Section */
+        .chat {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .chat h3 {
+            font-size: 1.5rem;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #F9F9F9;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .chat-messages p {
+            margin: 5px 0;
+        }
+
+        .chat-input {
+            display: flex;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .chat-input button {
+            padding: 10px;
+            border: none;
+            background-color: #F97316;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .trip-section {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Manage Trip with Vlogger</h1>
+    </div>
+
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger1.png" alt="Vlogger Profile">
+                <h3>Passenger Paramvir</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vloggers2.jpg" alt="Vlogger Profile">
+                <h3>Dhruv Rathee</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger3.jpg" alt="Vlogger Profile">
+                <h3>Nomad Shubham</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger4.jpg" alt="Vlogger Profile">
+                <h3>Indian Backpacker</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger5.jpg" alt="Vlogger Profile">
+                <h3>Morgan Venn</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger6.jpg" alt="Vlogger Profile">
+                <h3>Travel with Soumit</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger7.jpg" alt="Vlogger Profile">
+                <h3>Travel with AK</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger8.jpg" alt="Vlogger Profile">
+                <h3>Ajay Raj</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger9.jpg" alt="Vlogger Profile">
+                <h3>Wandering Maniac</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="trip-section">
+            <!-- Vlogger Details -->
+            <div class="card vlogger-details">
+                <img src="vlogger10.jpg" alt="Vlogger Profile">
+                <h3>Kanishk Gupta</h3>
+                <p>Professional Travel Vlogger</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card itinerary">
+                <h3>Itinerary</h3>
+                <div class="day">
+                    <p class="day-header">Day 1: Arrival & City Tour</p>
+                    <p class="day-details">Meet at the airport, explore the city landmarks, and enjoy a local dinner.</p>
+                </div>
+                <div class="day">
+                    <p class="day-header">Day 2: Adventure Activities</p>
+                    <p class="day-details">Hiking, kayaking, and a scenic picnic in the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Budget Details -->
+            <div class="card budget">
+                <h3>Budget Breakdown</h3>
+                <ul>
+                    <li><span>Accommodation:</span> <span>$500</span></li>
+                    <li><span>Food:</span> <span>$200</span></li>
+                    <li><span>Activities:</span> <span>$300</span></li>
+                    <li><strong>Total:</strong> <strong>$1000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="card chat">
+            <h3>Chat</h3>
+            <div class="chat-messages">
+                <p><strong>John:</strong> Looking forward to the trip!</p>
+                <p><strong>You:</strong> Me too! Can’t wait to start.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+
+           
+        </div>
+    </div>
+</body>
+</html>

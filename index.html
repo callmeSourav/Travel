@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkSphere - Connect & Explore</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+        }
+
+        /* header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        } */
+
+        #logo {
+            width: 120px; /* Adjust logo width */
+            height: 120px; /* Make logo height equal to width for a perfect circle */
+            border-radius: 60%; /* Makes the logo circular */
+            object-fit: cover; /* Ensures the image fits perfectly inside the circle */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+            margin-left: 20px;
+
+        }
+
+        #logo:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+        .hero-section {
+    position: relative;
+    width: 100%; /* Full-width container */
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden; /* Ensures no overflow */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+}
+.hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero .hero-content {
+            z-index: 1;
+        }
+
+.hero-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Aligns the text exactly in the center */
+    color:white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /*;Adds a semi-transparent background  */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for modern look */
+}
+
+.hero-text h1 {
+    font-size: 2.5rem; /* Main heading size */
+     margin: 0 0 6px; 
+}
+
+.hero-text p {
+    font-size: 1.2rem; /* Subtext size */
+    margin: 0;
+}
+.btn-primary, .btn-secondary {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 9%;
+            margin-top: 50%;
+        }
+
+        .btn-primary {
+            background: #ff6347;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #e55342;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1e90ff;
+            border: 1px solid #1e90ff;
+        }
+
+        .btn-secondary:hover {
+            background: #e0f7ff;
+        }
+
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://source.unsplash.com/1600x900/?travel') center/cover;
+            color: black;
+
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        .clickable-text {
+    text-decoration: none; /* Removes the default underline */
+    color: #007BFF; /* Blue color for the text */
+    font-weight: bold; /* Makes the text bold */
+    font-size: 1.2rem; /* Adjusts the font size */
+    transition: color 0.3s ease; /* Smooth color transition effect */
+}
+
+.clickable-text:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Adds underline on hover for better UX */
+}
+
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .features .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .feature-item p {
+            color: #555;
+        }
+        .features .feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+        .body-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+        #dashboard-preview {
+            background: linear-gradient(90deg, #1e90ff, #00bcd4);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #dashboard-preview img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        #trip-section {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #trip-section .trip-options {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        #trip-section .trip-option {
+            flex: 1;
+            max-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- <h1>LinkSphere</h1> -->
+            <img src="logo.png" alt="LinkSphere Logo" id="logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="about.html">Flights</a></li>
+                <li><a href="contact.html">Trains</a></li>
+                <li><a href="login.html">Buses</a></li>
+                <li><a href="contact.html">Holidays</a></li>
+                <li><a href="login.html">HomeStays</a></li>
+                <li><a href="contact.html">Cabs</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- <section class="hero" id="home">
+       
+        <h2>Connect with Travelers, Explore the World</h2>
+        <img src="pic1.png" alt="Adventure" class="body-image"> -->
+        <!-- <p>Join travel vloggers and adventurers on unique journeys. Make every trip unforgettable.</p>
+    </section> --> 
+    <section id="hero">
+        <div class="hero-section">
+            <img src="pic1.png" alt="Hero Background" class="hero-image">
+            <div class="hero-text">
+                <h1>Connect with Travelers, Explore the World</h1>
+                <p>Join travel vloggers and adventurers on unique journeys. Make every trip unforgettable.</p>
+                <!-- <a href="#signup" class="btn-primary">Join Now</a> -->
+            </div>
+        </div>
+    </section>
+   
+    
+
+   
+
+    <section class="features" id="features">
+        <div class="feature-item">
+            <a href="discover.html" class="clickable-text"><h3>Connect with Travel Vloggers</h3></a>
+            <p>Discover influencers sharing their journeys and find inspiration for your own adventures.</p>
+
+           <!-- <h3>Connect with Travel Vloggers</h3></a>
+            <p>Discover influencers sharing their journeys and find inspiration for your own adventures.</p> -->
+        </div>
+        <div class="feature-item">
+            <a href="planadventure.html" class="clickable-text"><h3>Plan Your Adventures</h3></a>
+            <p>Use our platform to organize trips and collaborate with like-minded travelers.</p>
+        </div>
+        <div class="feature-item">
+            <a href="discover.html" class="clickable-text"><h3>Exclusive Content</h3></a>
+            <p>Access exclusive guides, tips, and behind-the-scenes stories from top vloggers.</p>
+        </div>
+        <div class="feature-item">
+            <a href="discover.html" class="clickable-text"><h3>Safe & Secure</h3></a>
+            <p>Enjoy peace of mind with our secure platform and vetted travel experiences.</p>
+        </div>
+    </section>
+    <section id="dashboard-preview">
+        <div class="container">
+            <h2>Interactive Dashboard</h2>
+            <p>A modern and intuitive dashboard to manage profiles, trips, and collaborations.</p>
+            <img src="dashboard-preview.png" alt="Dashboard Preview">
+        </div>
+    </section>
+</div>
+</section>
+
+<section id="trip-section">
+    <div class="container">
+        <h2>Plan Your Next Adventure</h2>
+        <p>Collaborate with vloggers or explore solo adventures designed just for you.</p>
+        <div class="trip-options">
+            <div class="trip-option">
+                <h3>Travel with Vloggers</h3>
+                <p>Join curated group trips led by top travel influencers.</p>
+                <a href="#vlogger-trips" class="btn-primary">Explore Trips</a>
+            </div>
+            <div class="trip-option">
+                <h3>Solo Travel Plans</h3>
+                <p>Get personalized itineraries for your solo adventures.</p>
+                <a href="#solo-travel" class="btn-secondary">Plan a Trip</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <div class="container">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <p>"LinkSphere made my dream trip a reality. Traveling with my favorite vlogger was unforgettable!"</p>
+                <h4>- Alex, Adventurer</h4>
+            </div>
+            <div class="testimonial-item">
+                <p>"As a vlogger, this platform helped me connect with my followers like never before."</p>
+                <h4>- Mia, Travel Vlogger</h4>
+            </div>
+            <div class="testimonial-item">
+                <p>"The community tools and secure booking make planning trips a breeze!"</p>
+                <h4>- John, Frequent Traveler</h4>
+            </div>
+        </div>
+
+    <footer>
+        <p>&copy; 2025 LinkSphere. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="#">Twitter</a> | 
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>

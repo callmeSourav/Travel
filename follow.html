@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Travel Vloggers - LinkSphere</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+
+        /* Discover Section */
+        .discover-section {
+            padding: 50px 20px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .discover-section h1 {
+            font-size: 2.5rem;
+            color: #1e73be;
+            margin-bottom: 10px;
+        }
+
+        .discover-section p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .vloggers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .vlogger-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vlogger-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .vlogger-pic {
+            width: 70%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .vlogger-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .vlogger-card p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: #1e73be;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #f5a623;
+        }
+
+        .follow-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #1e73be;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .follow-btn:hover {
+            background-color: #f5a623;
+        }
+
+        /* Followers Section */
+        .followers-section {
+            padding: 30px 20px;
+            background: #f9f9f9;
+        }
+
+        .followers-section h2 {
+            font-size: 2rem;
+            color: #1e73be;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .followers-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .follower-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+        }
+
+        .follower-card img {
+            width: 60%;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <h1>LinkSphere</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Discover Section -->
+    <section class="discover-section">
+        <h1>Discover Travel Vloggers</h1>
+        <p>Connect with travel enthusiasts and explore their adventures.</p>
+        <div class="vloggers-container">
+            <div class="vlogger-card" data-name="Passenger Paramvir" data-pic="vlogger1.png">
+            <a href="managetrip.html" > 
+                <img src="vlogger1.png" alt="Clickable Image" class="vlogger-pic"></a> 
+                <h3>Passenger Paramvir</h3>
+                <p>Adventure and Nature Enthusiast</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">YouTube</a>
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+            <div class="vlogger-card" data-name="Passenger Paramvir" data-pic="vlogger1.png">
+                <img src="vlogger1.png" alt="Vlogger 1" class="vlogger-pic">
+                <h3>Passenger Paramvir</h3>
+                <p>Adventure and Nature Enthusiast</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">YouTube</a>
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+            <div class="vlogger-card" data-name="Passenger Paramvir" data-pic="vlogger1.png">
+                <img src="vlogger1.png" alt="Vlogger 1" class="vlogger-pic">
+                <h3>Passenger Paramvir</h3>
+                <p>Adventure and Nature Enthusiast</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">YouTube</a>
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+            <div class="vlogger-card" data-name="Passenger Paramvir" data-pic="vlogger1.png">
+                <img src="vlogger1.png" alt="Vlogger 1" class="vlogger-pic">
+                <h3>Passenger Paramvir</h3>
+                <p>Adventure and Nature Enthusiast</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">YouTube</a>
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+                <button class="follow-btn">Follow</button>
+            </div>
+            <!-- Additional cards here -->
+        </div>
+    </section>
+
+    <!-- Followers Section -->
+    <section class="followers-section">
+        <h2>Your Favourite Vloggers</h2>
+        <div class="followers-list" id="followersList"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 LinkSphere. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="#">Twitter</a> | 
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.follow-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.parentElement;
+                const name = card.dataset.name;
+                const pic = card.dataset.pic;
+
+                const followersList = document.getElementById('followersList');
+                const followerCard = document.createElement('div');
+                followerCard.classList.add('follower-card');
+                followerCard.innerHTML = `
+                    <img src="${pic}" alt="${name}">
+                    <h3>${name}</h3>
+                `;
+                followersList.appendChild(followerCard);
+
+                button.disabled = true;
+                button.textContent = 'Following';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkSphere - Connecting Travel Vloggers with Adventurers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav-links li a:hover {
+    color: #f5a623;
+}
+
+/* Feature Section */
+.features-section {
+    background-color: #fff;
+    padding: 80px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: bold;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-title {
+    font-size: 1.8rem;
+    color: #1e73be;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.feature-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.feature-list li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Footer Section */
+footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}
+
+</style>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <h1>LinkSphere</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Feature Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">LinkSphere Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">Discover Travel Vloggers</h3>
+                    <p class="feature-description">Explore a wide range of talented travel vloggers with curated content.</p>
+                    <ul class="feature-list">
+                        <li>Connect with Creators</li>
+                        <li>Curated Content</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Find Your Perfect Travel Buddy</h3>
+                    <p class="feature-description">Match with adventurers who share your travel interests and goals.</p>
+                    <ul class="feature-list">
+                        <li>Match with Fellow Travelers</li>
+                        <li>Adventure Compatibility</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Personalized Travel Plans</h3>
+                    <p class="feature-description">Design custom itineraries and collaborate on your travel plans.</p>
+                    <ul class="feature-list">
+                        <li>Custom Itinerary Builder</li>
+                        <li>Collaborative Planning</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">In-App Booking System</h3>
+                    <p class="feature-description">Book flights, accommodations, and experiences directly.</p>
+                    <ul class="feature-list">
+                        <li>Seamless Travel Bookings</li>
+                        <li>Group Discounts</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Real-Time Trip Updates</h3>
+                    <p class="feature-description">Stay updated with live feeds from your travel community.</p>
+                    <ul class="feature-list">
+                        <li>Live Adventure Feeds</li>
+                        <li>Trip Highlights</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Community Engagement</h3>
+                    <p class="feature-description">Interact with fellow travelers and share experiences.</p>
+                    <ul class="feature-list">
+                        <li>Interactive Discussions</li>
+                        <li>Travel Inspiration</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Exclusive Vlogger Collaboration</h3>
+                    <p class="feature-description">Collaborate with vloggers and monetize your travel experiences.</p>
+                    <ul class="feature-list">
+                        <li>Vlogger Partnerships</li>
+                        <li>Monetization Opportunities</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Adventure Safeguards</h3>
+                    <p class="feature-description">Stay safe during your travels with our advanced safety features.</p>
+                    <ul class="feature-list">
+                        <li>Safety Features</li>
+                        <li>Emergency Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 LinkSphere. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="#">Twitter</a> | 
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
